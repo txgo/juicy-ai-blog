@@ -3,7 +3,7 @@ import { config, fields, collection } from '@keystatic/core';
 export default config({
   storage: {
     kind: 'github',
-    repo: 'yourusername/juicy-ai-blog',
+    repo: 'txgo/juicy-ai-blog',
   },
   collections: {
     posts: collection({

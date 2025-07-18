@@ -25,7 +25,7 @@ A modern personal blog built with Astro, Keystatic CMS, Alpine.js, and Tailwind 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/juicy-ai-blog.git
+git clone https://github.com/txgo/juicy-ai-blog.git
 cd juicy-ai-blog
 ```
 
@@ -84,7 +84,7 @@ You can also create content manually:
 git add .
 git commit -m "Initial commit"
 git branch -M main
-git remote add origin https://github.com/yourusername/juicy-ai-blog.git
+git remote add origin https://github.com/txgo/juicy-ai-blog.git
 git push -u origin main
 ```
 
@@ -92,8 +92,8 @@ git push -u origin main
 
 1. Go to GitHub Settings > Developer settings > OAuth Apps
 2. Create a new OAuth App with:
-   - Homepage URL: `https://yourusername.github.io/juicy-ai-blog`
-   - Authorization callback URL: `https://yourusername.github.io/juicy-ai-blog/keystatic/api/github/oauth/callback`
+   - Homepage URL: `https://txgo.github.io/juicy-ai-blog`
+   - Authorization callback URL: `https://txgo.github.io/juicy-ai-blog/keystatic/api/github/oauth/callback`
 3. Note the Client ID and Client Secret for Keystatic configuration
 
 ## 🎨 Customization
@@ -145,7 +145,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🔗 Links
 
-- [Live Site](https://yourusername.github.io/juicy-ai-blog)
+- [Live Site](https://txgo.github.io/juicy-ai-blog)
 - [Astro Documentation](https://docs.astro.build)
 - [Keystatic Documentation](https://keystatic.com/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)

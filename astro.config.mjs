@@ -10,6 +10,6 @@ export default defineConfig({
     keystatic()
   ],
   output: 'hybrid',
-  site: 'https://yourusername.github.io',
+  site: 'https://txgo.github.io',
   base: '/juicy-ai-blog'
 });
