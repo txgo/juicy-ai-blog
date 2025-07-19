@@ -7,6 +7,7 @@ export interface Props {
 }
 
 const { title, description = "Juicy AI - Personal Blog about AI, Technology, and Innovation" } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -15,7 +16,7 @@ const { title, description = "Juicy AI - Personal Blog about AI, Technology, and
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -24,13 +25,13 @@ const { title, description = "Juicy AI - Personal Blog about AI, Technology, and
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <div class="flex items-center">
-            <a href="/" class="text-2xl font-bold text-indigo-600">Juicy AI</a>
+            <a href={baseUrl} class="text-2xl font-bold text-indigo-600">Juicy AI</a>
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
-              <a href="/" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-              <a href="/blog" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Blog</a>
-              <a href="/about" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">About</a>
+              <a href={baseUrl} class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+              <a href={`${baseUrl}blog`} class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Blog</a>
+              <a href={`${baseUrl}about`} class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">About</a>
             </div>
           </div>
           <div class="md:hidden">
