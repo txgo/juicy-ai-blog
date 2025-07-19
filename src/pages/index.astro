@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('posts');
@@ -17,12 +18,13 @@ const recentPosts = posts.sort((a, b) => b.data.publishedAt.getTime() - a.data.p
           Exploring the intersection of artificial intelligence, technology, and innovation. 
           Join me on a journey through the latest developments in AI and tech.
         </p>
-        <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-          <div class="rounded-md shadow">
-            <a href="/blog" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
-              Read Blog
-            </a>
-          </div>
+        <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8 gap-4">
+          <Button variant="default" size="lg">
+            <a href="/blog" class="text-white">Read Blog</a>
+          </Button>
+          <Button variant="outline" size="lg">
+            <a href="/about">About Me</a>
+          </Button>
         </div>
       </div>
     </div>

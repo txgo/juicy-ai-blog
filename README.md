@@ -1,13 +1,13 @@
 # Juicy AI Blog
 
-A modern personal blog built with Astro, Keystatic CMS, Alpine.js, and Tailwind CSS, focused on AI and technology content.
+A modern personal blog built with Astro, shadcn/ui, and Tailwind CSS, focused on AI and technology content.
 
 ## 🚀 Features
 
-- **Modern Stack**: Astro + Keystatic CMS + Alpine.js + Tailwind CSS
-- **Content Management**: Easy content editing with Keystatic CMS
-- **Responsive Design**: Beautiful, mobile-first design with Tailwind CSS
-- **Interactive Elements**: Enhanced UX with Alpine.js
+- **Modern Stack**: Astro + shadcn/ui + Tailwind CSS
+- **Component Library**: Beautiful, accessible components with shadcn/ui
+- **Responsive Design**: Mobile-first design with Tailwind CSS
+- **Content Collections**: Type-safe content management with Astro
 - **SEO Optimized**: Built-in SEO features with Astro
 - **GitHub Pages**: Free hosting with GitHub Pages
 - **TypeScript**: Full type safety
@@ -15,9 +15,8 @@ A modern personal blog built with Astro, Keystatic CMS, Alpine.js, and Tailwind 
 ## 🛠️ Tech Stack
 
 - **Framework**: [Astro](https://astro.build/)
-- **CMS**: [Keystatic](https://keystatic.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) (Astro version)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **JavaScript**: [Alpine.js](https://alpinejs.dev/)
 - **Language**: TypeScript
 - **Deployment**: GitHub Pages
 
@@ -35,8 +34,7 @@ npm install
 ```
 
 3. Update configuration:
-   - Edit `astro.config.mjs` to update `site` and `base` URLs
-   - Edit `keystatic.config.ts` to update the GitHub repository
+   - Edit `astro.config.mjs` to update `site` and `base` URLs for your deployment
 
 ## 🧞 Commands
 
@@ -50,19 +48,30 @@ npm install
 
 ## 📝 Content Management
 
-### Using Keystatic CMS
+### Creating Content
 
-1. Run the development server: `npm run dev`
-2. Navigate to `/keystatic` in your browser
-3. Sign in with GitHub (after setting up GitHub OAuth)
-4. Create and edit posts and pages through the visual editor
-
-### Manual Content Creation
-
-You can also create content manually:
+Create content manually by adding files to the content directories:
 
 1. **Blog Posts**: Create `.mdx` files in `src/content/posts/`
 2. **Pages**: Create `.mdx` files in `src/content/pages/`
+
+### Content Structure
+
+Each blog post should include frontmatter with the following fields:
+
+```yaml
+---
+title: "Your Post Title"
+publishedAt: 2024-01-15
+summary: "A brief summary of your post"
+image: "/images/posts/featured-image.jpg" # optional
+tags:
+  - AI
+  - Technology
+---
+
+# Your content here...
+```
 
 ## 🌐 Deployment
 
@@ -72,7 +81,6 @@ You can also create content manually:
 
 2. **Update configuration**:
    - In `astro.config.mjs`, update the `site` URL to your GitHub Pages URL
-   - In `keystatic.config.ts`, update the repository name
 
 3. **Enable GitHub Pages**:
    - Go to your repository settings
@@ -88,13 +96,15 @@ git remote add origin https://github.com/txgo/juicy-ai-blog.git
 git push -u origin main
 ```
 
-### GitHub OAuth Setup (for Keystatic CMS)
+### Adding shadcn/ui Components
 
-1. Go to GitHub Settings > Developer settings > OAuth Apps
-2. Create a new OAuth App with:
-   - Homepage URL: `https://txgo.github.io/juicy-ai-blog`
-   - Authorization callback URL: `https://txgo.github.io/juicy-ai-blog/keystatic/api/github/oauth/callback`
-3. Note the Client ID and Client Secret for Keystatic configuration
+To add more shadcn/ui components to your project:
+
+```bash
+npx shadcn@latest add [component-name]
+```
+
+Note: Since this is an Astro project, you'll need to convert the generated React components to Astro components manually, following the pattern used in `src/components/ui/Button.astro`.
 
 ## 🎨 Customization
 
@@ -112,7 +122,7 @@ git push -u origin main
 ### Content Schema
 
 - Content collections: `src/content/config.ts`
-- Keystatic schema: `keystatic.config.ts`
+- shadcn/ui configuration: `components.json`
 
 ## 📁 Project Structure
 
@@ -122,13 +132,17 @@ git push -u origin main
 │   └── images/
 ├── src/
 │   ├── components/
+│   │   └── ui/         # shadcn/ui components
 │   ├── content/
-│   │   ├── posts/
-│   │   └── pages/
+│   │   ├── posts/      # Blog posts (.mdx)
+│   │   └── pages/      # Static pages (.mdx)
 │   ├── layouts/
-│   └── pages/
+│   ├── lib/            # Utility functions
+│   ├── pages/          # Astro pages
+│   └── styles/         # Global styles
 ├── astro.config.mjs
-├── keystatic.config.ts
+├── components.json     # shadcn/ui config
+├── tailwind.config.mjs
 └── package.json
 ```
 
@@ -147,6 +161,5 @@ This project is open source and available under the [MIT License](LICENSE).
 
 - [Live Site](https://txgo.github.io/juicy-ai-blog)
 - [Astro Documentation](https://docs.astro.build)
-- [Keystatic Documentation](https://keystatic.com/docs)
+- [shadcn/ui Documentation](https://ui.shadcn.com/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Alpine.js Documentation](https://alpinejs.dev/start-here)

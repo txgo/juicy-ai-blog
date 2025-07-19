@@ -1,15 +1,14 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import keystatic from '@keystatic/astro';
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    tailwind(),
-    keystatic()
+    tailwind()
   ],
-  output: 'hybrid',
+  output: 'static',
   site: 'https://txgo.github.io',
-  base: '/juicy-ai-blog'
+  // Only use base path for GitHub Pages deployment
+  base: process.env.NODE_ENV === 'production' ? '/juicy-ai-blog' : '/'
 });
