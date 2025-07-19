@@ -6,6 +6,11 @@ import { getCollection } from 'astro:content';
 const posts = await getCollection('posts');
 const recentPosts = posts.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()).slice(0, 3);
 const baseUrl = import.meta.env.BASE_URL;
+
+// Utility function to properly join base URL with path
+function joinUrl(base: string, path: string): string {
+  return base.endsWith('/') ? base + path : base + '/' + path;
+}
 ---
 
 <Layout title="Juicy AI - Personal Blog">
@@ -21,10 +26,10 @@ const baseUrl = import.meta.env.BASE_URL;
         </p>
         <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8 gap-4">
           <Button variant="default" size="lg">
-            <a href={`${baseUrl}blog/`} class="text-white">Read Blog</a>
+            <a href={joinUrl(baseUrl, 'blog/')} class="text-white">Read Blog</a>
           </Button>
           <Button variant="outline" size="lg">
-            <a href={`${baseUrl}about/`}>About Me</a>
+            <a href={joinUrl(baseUrl, 'about/')}> About Me</a>
           </Button>
         </div>
       </div>
@@ -60,7 +65,7 @@ const baseUrl = import.meta.env.BASE_URL;
               </time>
             </div>
             <h3 class="text-xl font-semibold text-gray-900 mb-2">
-              <a href={`${baseUrl}blog/${post.slug}/`} class="hover:text-indigo-600">
+              <a href={joinUrl(baseUrl, `blog/${post.slug}/`)} class="hover:text-indigo-600">
                 {post.data.title}
               </a>
             </h3>
@@ -72,7 +77,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 </span>
               ))}
             </div>
-            <a href={`${baseUrl}blog/${post.slug}/`} class="text-indigo-600 hover:text-indigo-800 font-medium">
+            <a href={joinUrl(baseUrl, `blog/${post.slug}/`)} class="text-indigo-600 hover:text-indigo-800 font-medium">
               Read more →
             </a>
           </div>
