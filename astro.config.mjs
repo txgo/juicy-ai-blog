@@ -9,6 +9,6 @@ export default defineConfig({
   ],
   output: 'static',
   site: 'https://txgo.github.io',
-  // Only use base path for GitHub Pages deployment
-  base: process.env.NODE_ENV === 'production' ? '/juicy-ai-blog' : '/'
+  // Use base path for GitHub Pages deployment (GitHub Actions sets CI=true)
+  base: process.env.CI ? '/juicy-ai-blog' : '/'
 });
