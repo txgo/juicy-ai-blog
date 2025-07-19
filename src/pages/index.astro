@@ -21,10 +21,10 @@ const baseUrl = import.meta.env.BASE_URL;
         </p>
         <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8 gap-4">
           <Button variant="default" size="lg">
-            <a href={`${baseUrl}blog`} class="text-white">Read Blog</a>
+            <a href={`${baseUrl}blog/`} class="text-white">Read Blog</a>
           </Button>
           <Button variant="outline" size="lg">
-            <a href={`${baseUrl}about`}>About Me</a>
+            <a href={`${baseUrl}about/`}>About Me</a>
           </Button>
         </div>
       </div>
@@ -60,7 +60,7 @@ const baseUrl = import.meta.env.BASE_URL;
               </time>
             </div>
             <h3 class="text-xl font-semibold text-gray-900 mb-2">
-              <a href={`${baseUrl}blog/${post.slug}`} class="hover:text-indigo-600">
+              <a href={`${baseUrl}blog/${post.slug}/`} class="hover:text-indigo-600">
                 {post.data.title}
               </a>
             </h3>
@@ -72,7 +72,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 </span>
               ))}
             </div>
-            <a href={`${baseUrl}blog/${post.slug}`} class="text-indigo-600 hover:text-indigo-800 font-medium">
+            <a href={`${baseUrl}blog/${post.slug}/`} class="text-indigo-600 hover:text-indigo-800 font-medium">
               Read more →
             </a>
           </div>
