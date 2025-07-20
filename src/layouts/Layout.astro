@@ -15,6 +15,10 @@ const isEnglish = currentPath.startsWith('/en/') || currentPath === '/en';
 const currentLang = isEnglish ? 'en' : 'zh-CN';
 const currentLangCode = isEnglish ? 'en' : 'zh-cn';
 
+// Hide language switcher on Chinese blog pages since they're Chinese-specific content
+const isChineseBlogPage = currentPath.startsWith('/blog/') && !isEnglish;
+const showLanguageSwitcher = !isChineseBlogPage;
+
 // Navigation labels
 const nav = {
   'zh-cn': {
@@ -45,15 +49,21 @@ const basePath = isEnglish ? `${import.meta.env.BASE_URL}en/` : import.meta.env.
   </head>
   <body class="bg-base-100 text-base-content">
     <header class="bg-base-100 shadow-sm border-b border-base-200">
-      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <div class="flex items-center">
-            <a href={import.meta.env.BASE_URL} class="text-2xl font-bold text-primary">Juicy AI</a>
-          </div>
-          <div class="hidden md:flex items-center ml-10 space-x-6">
-            <a href={basePath} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap">{nav[currentLangCode].home}</a>
-            <a href={`${basePath}blog/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap">{nav[currentLangCode].blog}</a>
-            <a href={`${basePath}about/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap">{nav[currentLangCode].about}</a>
+      <div class="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="navbar-start">
+          <a href={import.meta.env.BASE_URL} class="btn btn-ghost text-xl text-primary font-bold">Juicy AI</a>
+        </div>
+        
+        <div class="navbar-center hidden md:flex">
+          <ul class="menu menu-horizontal px-1 space-x-2">
+            <li><a href={basePath} class="whitespace-nowrap">{nav[currentLangCode].home}</a></li>
+            <li><a href={`${basePath}blog/`} class="whitespace-nowrap">{nav[currentLangCode].blog}</a></li>
+            <li><a href={`${basePath}about/`} class="whitespace-nowrap">{nav[currentLangCode].about}</a></li>
+          </ul>
+        </div>
+        
+        <div class="navbar-end">
+          <div class="hidden md:flex items-center space-x-4">
             <!-- Language Switch -->
             <div class="join">
               <a href={isEnglish ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}`} 
@@ -75,17 +85,14 @@ const basePath = isEnglish ? `${import.meta.env.BASE_URL}en/` : import.meta.env.
             </select>
           </div>
           <div class="md:hidden">
-            <button
-              type="button"
-              class="text-base-content/70 hover:text-primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
-            >
+            <button class="btn btn-ghost btn-square">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
         </div>
-      </nav>
+      </div>
     </header>
 
     <main>
