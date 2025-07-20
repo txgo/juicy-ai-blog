@@ -1,12 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind()
-  ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   output: 'static',
   site: 'https://txgo.github.io',
   // Use base path for GitHub Pages deployment (GitHub Actions sets CI=true)

@@ -31,6 +31,18 @@ const { title, description = "Juicy AI - Personal Blog about AI, Technology, and
               <a href={import.meta.env.BASE_URL} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Home</a>
               <a href={`${import.meta.env.BASE_URL}blog/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Blog</a>
               <a href={`${import.meta.env.BASE_URL}about/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">About</a>
+              <!-- Theme Controller -->
+              <select class="select select-sm bg-base-200" data-choose-theme>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="valentine">Valentine</option>
+                <option value="cyberpunk">Cyberpunk</option>
+                <option value="synthwave">Synthwave</option>
+                <option value="retro">Retro</option>
+                <option value="aqua">Aqua</option>
+                <option value="luxury">Luxury</option>
+                <option value="dracula">Dracula</option>
+              </select>
             </div>
           </div>
           <div class="md:hidden">
@@ -58,5 +70,25 @@ const { title, description = "Juicy AI - Personal Blog about AI, Technology, and
         </div>
       </div>
     </footer>
+    
+    <script>
+      // Theme controller functionality
+      const themeController = document.querySelector('[data-choose-theme]');
+      const htmlElement = document.documentElement;
+      
+      // Set initial theme
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      htmlElement.setAttribute('data-theme', savedTheme);
+      if (themeController) themeController.value = savedTheme;
+      
+      // Handle theme changes
+      if (themeController) {
+        themeController.addEventListener('change', function() {
+          const selectedTheme = this.value;
+          htmlElement.setAttribute('data-theme', selectedTheme);
+          localStorage.setItem('theme', selectedTheme);
+        });
+      }
+    </script>
   </body>
 </html>
