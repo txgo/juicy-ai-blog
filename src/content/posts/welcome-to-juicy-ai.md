@@ -1,6 +1,6 @@
 ---
 title: 欢迎来到 Juicy AI！
-publishedAt: 2024-01-15
+publishedAt: 2025-01-15
 summary: 欢迎来到 Juicy AI！这是我探索人工智能、机器学习和令人惊叹的技术创新世界旅程的开篇文章。
 lang: zh-cn
 tags:

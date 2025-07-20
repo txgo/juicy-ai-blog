@@ -1,6 +1,6 @@
 ---
 title: 从零开始构建现代化多语言AI博客：Astro + DaisyUI + i18n完整指南
-publishedAt: 2024-07-20
+publishedAt: 2025-07-20
 summary: 详细介绍如何使用Astro、DaisyUI和TailwindCSS v4构建一个现代化的多语言AI博客，包含完整的技术栈选择、配置和实现过程。
 lang: zh-cn
 tags:
