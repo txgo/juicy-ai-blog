@@ -1,28 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('posts');
 const recentPosts = posts.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()).slice(0, 3);
 ---
 
-<Layout title="Juicy AI - 个人博客">
+<Layout title="Juicy AI - Personal Blog">
   <div class="hero min-h-96 bg-gradient-to-br from-primary/10 to-secondary/10">
     <div class="hero-content text-center">
       <div class="max-w-3xl">
         <h1 class="text-5xl font-bold">
-          欢迎来到 <span class="text-primary">Juicy AI</span>
+          Welcome to <span class="text-primary">Juicy AI</span>
         </h1>
         <p class="py-6 text-lg">
-          探索人工智能、技术和创新的交汇点。
-          和我一起踏上探索AI和科技最新发展的旅程。
+          Exploring the intersection of artificial intelligence, technology, and innovation. 
+          Join me on a journey through the latest developments in AI and tech.
         </p>
         <div class="flex gap-4 justify-center">
-          <a href={`${import.meta.env.BASE_URL}blog/`} class="btn btn-primary btn-lg">
-            阅读博客
+          <a href={`${import.meta.env.BASE_URL}en/blog/`} class="btn btn-primary btn-lg">
+            Read Blog
           </a>
-          <a href={`${import.meta.env.BASE_URL}about/`} class="btn btn-outline btn-lg">
-            关于我
+          <a href={`${import.meta.env.BASE_URL}en/about/`} class="btn btn-outline btn-lg">
+            About Me
           </a>
         </div>
       </div>
@@ -31,9 +31,9 @@ const recentPosts = posts.sort((a, b) => b.data.publishedAt.getTime() - a.data.p
 
   <div class="container mx-auto px-4 py-12">
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold">最新文章</h2>
+      <h2 class="text-3xl font-bold">Latest Posts</h2>
       <p class="mt-3 text-base-content/70 text-lg">
-        发现有关AI和技术的最新见解和思考。
+        Discover the latest insights and thoughts on AI and technology.
       </p>
     </div>
 
@@ -52,7 +52,7 @@ const recentPosts = posts.sort((a, b) => b.data.publishedAt.getTime() - a.data.p
           <div class="card-body">
             <div class="text-sm text-base-content/60 mb-2">
               <time datetime={post.data.publishedAt.toISOString()}>
-                {post.data.publishedAt.toLocaleDateString('zh-CN', { 
+                {post.data.publishedAt.toLocaleDateString('en-US', { 
                   year: 'numeric', 
                   month: 'long', 
                   day: 'numeric' 
@@ -60,7 +60,7 @@ const recentPosts = posts.sort((a, b) => b.data.publishedAt.getTime() - a.data.p
               </time>
             </div>
             <h3 class="card-title">
-              <a href={`${import.meta.env.BASE_URL}blog/${post.slug}/`} class="hover:text-primary">
+              <a href={`${import.meta.env.BASE_URL}en/blog/${post.slug}/`} class="hover:text-primary">
                 {post.data.title}
               </a>
             </h3>
@@ -73,21 +73,13 @@ const recentPosts = posts.sort((a, b) => b.data.publishedAt.getTime() - a.data.p
               ))}
             </div>
             <div class="card-actions justify-end">
-              <a href={`${import.meta.env.BASE_URL}blog/${post.slug}/`} class="btn btn-primary btn-sm">
-                阅读更多
+              <a href={`${import.meta.env.BASE_URL}en/blog/${post.slug}/`} class="btn btn-primary btn-sm">
+                Read more
               </a>
             </div>
           </div>
         </div>
       ))}
-    </div>
-
-    <!-- Language Switch -->
-    <div class="text-center mt-12">
-      <div class="join">
-        <span class="join-item btn btn-active">中文</span>
-        <a href={`${import.meta.env.BASE_URL}en/`} class="join-item btn">English</a>
-      </div>
     </div>
   </div>
 </Layout>

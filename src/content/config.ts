@@ -8,6 +8,7 @@ const posts = defineCollection({
     summary: z.string(),
     image: z.string().optional(),
     tags: z.array(z.string()).default([]),
+    lang: z.enum(['zh-cn', 'en']).default('zh-cn'),
   }),
 });
 
@@ -15,6 +16,7 @@ const pages = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    lang: z.enum(['zh-cn', 'en']).default('zh-cn'),
   }),
 });
 

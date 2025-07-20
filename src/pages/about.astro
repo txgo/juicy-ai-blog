@@ -2,15 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="About - Juicy AI">
+<Layout title="关于我 - Juicy AI">
   <div class="bg-base-100 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <h1 class="text-4xl font-bold text-base-content sm:text-5xl">
-          About Juicy AI
+          关于 Juicy AI
         </h1>
         <p class="mt-3 max-w-2xl mx-auto text-xl text-base-content/70">
-          Welcome to my corner of the internet where AI meets creativity.
+          欢迎来到我在互联网上的角落，这里是AI与创造力相遇的地方。
         </p>
       </div>
     </div>
@@ -19,50 +19,56 @@ import Layout from '../layouts/Layout.astro';
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="prose prose-lg max-w-none">
       <div class="bg-gradient-to-r from-primary/10 to-secondary/10 p-8 rounded-lg mb-8">
-        <h2 class="text-2xl font-bold text-base-content mb-4">Hello, I'm the creator of Juicy AI</h2>
+        <h2 class="text-2xl font-bold text-base-content mb-4">你好，我是Juicy AI的创建者</h2>
         <p class="text-base-content/80 mb-4">
-          I'm passionate about artificial intelligence, machine learning, and the incredible ways 
-          technology is reshaping our world. This blog is my space to share insights, experiments, 
-          and discoveries from the fascinating intersection of AI and everyday life.
+          我对人工智能、机器学习以及技术重塑我们世界的不可思议方式充满热情。
+          这个博客是我分享来自AI与日常生活这个令人着迷交汇点的见解、实验和发现的空间。
         </p>
         <p class="text-base-content/80">
-          Whether you're a fellow AI enthusiast, a developer looking to dive into machine learning, 
-          or simply curious about the future of technology, you'll find something interesting here.
+          无论你是AI爱好者同伴、希望深入机器学习的开发者，
+          还是仅仅对技术的未来感到好奇，你都会在这里找到有趣的内容。
         </p>
       </div>
 
-      <h2 class="text-2xl font-bold text-base-content mb-4">What You'll Find Here</h2>
+      <h2 class="text-2xl font-bold text-base-content mb-4">你将在这里发现</h2>
       <ul class="space-y-3 mb-8">
         <li class="flex items-start">
           <span class="text-primary font-bold mr-2">•</span>
-          <span>Deep dives into AI technologies and their practical applications</span>
+          <span>深入探讨AI技术及其实际应用</span>
         </li>
         <li class="flex items-start">
           <span class="text-primary font-bold mr-2">•</span>
-          <span>Tutorials and guides for developers and AI enthusiasts</span>
+          <span>面向开发者和AI爱好者的教程和指南</span>
         </li>
         <li class="flex items-start">
           <span class="text-primary font-bold mr-2">•</span>
-          <span>Thoughts on the future of technology and its impact on society</span>
+          <span>对技术未来及其对社会影响的思考</span>
         </li>
         <li class="flex items-start">
           <span class="text-primary font-bold mr-2">•</span>
-          <span>Reviews of AI tools, frameworks, and emerging technologies</span>
+          <span>AI工具、框架和新兴技术的评测</span>
         </li>
       </ul>
 
-      <h2 class="text-2xl font-bold text-base-content mb-4">Get In Touch</h2>
+      <h2 class="text-2xl font-bold text-base-content mb-4">联系我</h2>
       <p class="text-gray-700 mb-4">
-        I love connecting with fellow AI enthusiasts and curious minds. Feel free to reach out 
-        if you have questions, ideas for collaboration, or just want to chat about the latest 
-        in AI and tech.
+        我喜欢与AI爱好者同伴和充满好奇心的人们建立联系。如果你有问题、合作想法，
+        或者只是想聊聊AI和科技的最新动态，请随时与我联系。
       </p>
       
       <div class="bg-base-200 p-6 rounded-lg">
         <p class="text-base-content/80 italic">
-          "The best way to predict the future is to create it." - This philosophy drives 
-          everything I do here at Juicy AI. Let's build the future together, one algorithm at a time.
+          "预测未来的最好方法就是创造未来。" - 这个理念驱动着我在Juicy AI所做的一切。
+          让我们一起构建未来，一次一个算法。
         </p>
+      </div>
+
+      <!-- Language Switch -->
+      <div class="text-center mt-12">
+        <div class="join">
+          <span class="join-item btn btn-active">中文</span>
+          <a href={`${import.meta.env.BASE_URL}en/about/`} class="join-item btn">English</a>
+        </div>
       </div>
     </div>
   </div>

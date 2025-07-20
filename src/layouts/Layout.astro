@@ -4,13 +4,37 @@ import '../styles/globals.css';
 export interface Props {
   title: string;
   description?: string;
+  lang?: string;
 }
 
-const { title, description = "Juicy AI - Personal Blog about AI, Technology, and Innovation" } = Astro.props;
+const { title, description = "Juicy AI - Personal Blog about AI, Technology, and Innovation", lang = "zh-CN" } = Astro.props;
+
+// Determine current locale from URL
+const currentPath = Astro.url.pathname;
+const isEnglish = currentPath.startsWith('/en/') || currentPath === '/en';
+const currentLang = isEnglish ? 'en' : 'zh-CN';
+const currentLangCode = isEnglish ? 'en' : 'zh-cn';
+
+// Navigation labels
+const nav = {
+  'zh-cn': {
+    home: '首页',
+    blog: '博客',
+    about: '关于'
+  },
+  'en': {
+    home: 'Home',
+    blog: 'Blog', 
+    about: 'About'
+  }
+};
+
+// Base path for navigation
+const basePath = isEnglish ? `${import.meta.env.BASE_URL}en/` : import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -28,9 +52,16 @@ const { title, description = "Juicy AI - Personal Blog about AI, Technology, and
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
-              <a href={import.meta.env.BASE_URL} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Home</a>
-              <a href={`${import.meta.env.BASE_URL}blog/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Blog</a>
-              <a href={`${import.meta.env.BASE_URL}about/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">About</a>
+              <a href={basePath} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">{nav[currentLangCode].home}</a>
+              <a href={`${basePath}blog/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">{nav[currentLangCode].blog}</a>
+              <a href={`${basePath}about/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">{nav[currentLangCode].about}</a>
+              <!-- Language Switch -->
+              <div class="join mx-4">
+                <a href={isEnglish ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}`} 
+                   class={`join-item btn btn-sm ${!isEnglish ? 'btn-active' : ''}`}>中文</a>
+                <a href={isEnglish ? `${import.meta.env.BASE_URL}en/` : `${import.meta.env.BASE_URL}en/`} 
+                   class={`join-item btn btn-sm ${isEnglish ? 'btn-active' : ''}`}>EN</a>
+              </div>
               <!-- Theme Controller -->
               <select class="select select-sm bg-base-200" data-choose-theme>
                 <option value="light">Light</option>
