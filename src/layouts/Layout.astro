@@ -69,7 +69,7 @@ const basePath = isEnglish ? `${import.meta.env.BASE_URL}en/` : import.meta.env.
                  class={`join-item btn btn-sm ${isEnglish ? 'btn-active' : ''}`}>EN</a>
             </div>
             <!-- Theme Controller -->
-            <select class="select select-sm bg-base-200" data-choose-theme>
+            <select class="select select-sm bg-base-200" data-choose-theme aria-label="Choose theme">
               <option value="light">Light</option>
               <option value="dark">Dark</option>
               <option value="valentine">Valentine</option>
@@ -82,8 +82,8 @@ const basePath = isEnglish ? `${import.meta.env.BASE_URL}en/` : import.meta.env.
             </select>
           </div>
           <div class="md:hidden">
-            <button class="btn btn-ghost btn-square">
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button class="btn btn-ghost btn-square" aria-label="Open navigation menu">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
