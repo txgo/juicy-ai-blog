@@ -1,11 +1,11 @@
 # Juicy AI Blog
 
-A modern personal blog built with Astro, shadcn/ui, and Tailwind CSS, focused on AI and technology content.
+A modern personal blog built with Astro, DaisyUI, and Tailwind CSS, focused on AI and technology content.
 
 ## 🚀 Features
 
-- **Modern Stack**: Astro + shadcn/ui + Tailwind CSS
-- **Component Library**: Beautiful, accessible components with shadcn/ui
+- **Modern Stack**: Astro + DaisyUI + Tailwind CSS v4
+- **Component Library**: Beautiful, accessible components with DaisyUI
 - **Responsive Design**: Mobile-first design with Tailwind CSS
 - **Content Collections**: Type-safe content management with Astro
 - **SEO Optimized**: Built-in SEO features with Astro
@@ -14,11 +14,12 @@ A modern personal blog built with Astro, shadcn/ui, and Tailwind CSS, focused on
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Astro](https://astro.build/)
-- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) (Astro version)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Framework**: [Astro](https://astro.build/) v5.12.0
+- **UI Components**: [DaisyUI](https://daisyui.com/) v5.0.46
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) v4.1.11
 - **Language**: TypeScript
 - **Deployment**: GitHub Pages
+- **Documentation**: Context7 MCP integration for up-to-date library docs
 
 ## 📦 Installation
 
@@ -96,22 +97,36 @@ git remote add origin https://github.com/txgo/juicy-ai-blog.git
 git push -u origin main
 ```
 
-### Adding shadcn/ui Components
+### Adding DaisyUI Components
 
-To add more shadcn/ui components to your project:
+DaisyUI components are available as CSS classes that you can apply directly to your HTML elements. No additional installation required - just use the class names:
 
-```bash
-npx shadcn@latest add [component-name]
+```astro
+<!-- Button component example -->
+<button class="btn btn-primary">Primary Button</button>
+
+<!-- Card component example -->
+<div class="card w-96 bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2 class="card-title">Card title!</h2>
+    <p>Card content goes here.</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</div>
 ```
 
-Note: Since this is an Astro project, you'll need to convert the generated React components to Astro components manually, following the pattern used in `src/components/ui/Button.astro`.
+Browse all available components at [DaisyUI Components](https://daisyui.com/components/).
 
 ## 🎨 Customization
 
 ### Styling
 
-- Tailwind configuration: `tailwind.config.js`
-- Custom styles: Add to your component files or create CSS files in `src/styles/`
+- **Tailwind CSS v4**: Modern configuration with Vite plugin in `astro.config.mjs`
+- **DaisyUI**: Component classes available globally
+- **Global Styles**: `src/styles/global.css` with `@import "tailwindcss";`
+- **Custom Styles**: Add to your component files or create CSS files in `src/styles/`
 
 ### Layout
 
@@ -122,7 +137,31 @@ Note: Since this is an Astro project, you'll need to convert the generated React
 ### Content Schema
 
 - Content collections: `src/content/config.ts`
-- shadcn/ui configuration: `components.json`
+
+## 🔧 Configuration Details
+
+### Astro Configuration (`astro.config.mjs`)
+```javascript
+// Modern Tailwind CSS v4 setup with Vite plugin
+import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig({
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  output: 'static',
+  site: 'https://txgo.github.io',
+  base: process.env.CI ? '/juicy-ai-blog/' : '/'
+});
+```
+
+### Context7 MCP Integration
+
+This project uses Context7 MCP for accessing up-to-date documentation:
+- **Available Libraries**: Astro, TailwindCSS, DaisyUI documentation
+- **Usage**: Access via Claude Code with Context7 MCP server
+- **Benefits**: Always current documentation without version drift
 
 ## 📁 Project Structure
 
@@ -140,9 +179,7 @@ Note: Since this is an Astro project, you'll need to convert the generated React
 │   ├── lib/            # Utility functions
 │   ├── pages/          # Astro pages
 │   └── styles/         # Global styles
-├── astro.config.mjs
-├── components.json     # shadcn/ui config
-├── tailwind.config.mjs
+├── astro.config.mjs    # Astro + Tailwind CSS v4 config
 └── package.json
 ```
 
@@ -161,5 +198,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 - [Live Site](https://txgo.github.io/juicy-ai-blog)
 - [Astro Documentation](https://docs.astro.build)
-- [shadcn/ui Documentation](https://ui.shadcn.com/docs)
+- [DaisyUI Documentation](https://daisyui.com/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Context7 MCP](https://github.com/context7/mcp-server) - Up-to-date library documentation
