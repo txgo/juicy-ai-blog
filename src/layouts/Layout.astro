@@ -54,14 +54,16 @@ const basePath = isEnglish ? `${import.meta.env.BASE_URL}en/` : import.meta.env.
           <a href={import.meta.env.BASE_URL} class="btn btn-ghost text-xl text-primary font-bold">Juicy AI</a>
         </div>
         
+        <div class="navbar-center hidden md:flex">
+          <ul class="menu menu-horizontal px-1 space-x-2">
+            <li><a href={basePath} class="whitespace-nowrap">{nav[currentLangCode].home}</a></li>
+            <li><a href={`${basePath}blog/`} class="whitespace-nowrap">{nav[currentLangCode].blog}</a></li>
+            <li><a href={`${basePath}about/`} class="whitespace-nowrap">{nav[currentLangCode].about}</a></li>
+          </ul>
+        </div>
+        
         <div class="navbar-end">
           <div class="hidden md:flex items-center space-x-4">
-            <!-- Navigation Menu -->
-            <ul class="menu menu-horizontal px-1 space-x-2">
-              <li><a href={basePath} class="whitespace-nowrap">{nav[currentLangCode].home}</a></li>
-              <li><a href={`${basePath}blog/`} class="whitespace-nowrap">{nav[currentLangCode].blog}</a></li>
-              <li><a href={`${basePath}about/`} class="whitespace-nowrap">{nav[currentLangCode].about}</a></li>
-            </ul>
             <!-- Language Switch -->
             <div class="join">
               <a href={isEnglish ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}`} 
