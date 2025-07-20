@@ -82,12 +82,5 @@ const recentPosts = posts.sort((a, b) => b.data.publishedAt.getTime() - a.data.p
       ))}
     </div>
 
-    <!-- Language Switch -->
-    <div class="text-center mt-12">
-      <div class="join">
-        <span class="join-item btn btn-active">中文</span>
-        <a href={`${import.meta.env.BASE_URL}en/`} class="join-item btn">English</a>
-      </div>
-    </div>
   </div>
 </Layout>
