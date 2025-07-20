@@ -50,31 +50,29 @@ const basePath = isEnglish ? `${import.meta.env.BASE_URL}en/` : import.meta.env.
           <div class="flex items-center">
             <a href={import.meta.env.BASE_URL} class="text-2xl font-bold text-primary">Juicy AI</a>
           </div>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-4">
-              <a href={basePath} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">{nav[currentLangCode].home}</a>
-              <a href={`${basePath}blog/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">{nav[currentLangCode].blog}</a>
-              <a href={`${basePath}about/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">{nav[currentLangCode].about}</a>
-              <!-- Language Switch -->
-              <div class="join mx-4">
-                <a href={isEnglish ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}`} 
-                   class={`join-item btn btn-sm ${!isEnglish ? 'btn-active' : ''}`}>中文</a>
-                <a href={isEnglish ? `${import.meta.env.BASE_URL}en/` : `${import.meta.env.BASE_URL}en/`} 
-                   class={`join-item btn btn-sm ${isEnglish ? 'btn-active' : ''}`}>EN</a>
-              </div>
-              <!-- Theme Controller -->
-              <select class="select select-sm bg-base-200" data-choose-theme>
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-                <option value="valentine">Valentine</option>
-                <option value="cyberpunk">Cyberpunk</option>
-                <option value="synthwave">Synthwave</option>
-                <option value="retro">Retro</option>
-                <option value="aqua">Aqua</option>
-                <option value="luxury">Luxury</option>
-                <option value="dracula">Dracula</option>
-              </select>
+          <div class="hidden md:flex items-center ml-10 space-x-6">
+            <a href={basePath} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap">{nav[currentLangCode].home}</a>
+            <a href={`${basePath}blog/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap">{nav[currentLangCode].blog}</a>
+            <a href={`${basePath}about/`} class="text-base-content/70 hover:text-primary px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap">{nav[currentLangCode].about}</a>
+            <!-- Language Switch -->
+            <div class="join">
+              <a href={isEnglish ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}`} 
+                 class={`join-item btn btn-sm ${!isEnglish ? 'btn-active' : ''}`}>中文</a>
+              <a href={isEnglish ? `${import.meta.env.BASE_URL}en/` : `${import.meta.env.BASE_URL}en/`} 
+                 class={`join-item btn btn-sm ${isEnglish ? 'btn-active' : ''}`}>EN</a>
             </div>
+            <!-- Theme Controller -->
+            <select class="select select-sm bg-base-200" data-choose-theme>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+              <option value="valentine">Valentine</option>
+              <option value="cyberpunk">Cyberpunk</option>
+              <option value="synthwave">Synthwave</option>
+              <option value="retro">Retro</option>
+              <option value="aqua">Aqua</option>
+              <option value="luxury">Luxury</option>
+              <option value="dracula">Dracula</option>
+            </select>
           </div>
           <div class="md:hidden">
             <button
